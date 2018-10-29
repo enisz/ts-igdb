@@ -167,85 +167,193 @@ Data can be requested from most of the IGDB endpoints. For more information on t
 Every endpoint method expects an ``options`` object to set up the request and returns a ``Promise``. In case of a successful request the ``Promise`` will resolve the results as an array. If the request failed it will reject the [Got module](https://www.npmjs.com/package/got)'s error object.
 
 #### achievements
-```IGDB.endpoint.achievements(options: IGDBOptions): Promise<AchievementEndpointResponse[]>```
+
+``IGDB.endpoint.achievements(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``AchievementsEndpointResponse``](interface/endpoint-response/achievements-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Achievements Endpoint Documentation](https://igdb.github.io/api/endpoints/achievement).
+
 
 #### character
-```IGDB.endpoint.character(options: IGDBOptions): Promise<CharacterEndpointResponse[]>```
+
+``IGDB.endpoint.character(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``CharacterEndpointResponse``](interface/endpoint-response/character-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Character Endpoint Documentation](https://igdb.github.io/api/endpoints/character).
+
 
 #### collection
-```IGDB.endpoint.collection(options: IGDBOptions): Promise<CollectionEndpointResponse[]>```
+
+``IGDB.endpoint.collection(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``CollectionEndpointResponse``](interface/endpoint-response/collection-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Collection Endpoint Documentation](https://igdb.github.io/api/endpoints/collection).
+
 
 #### company
-```IGDB.endpoint.company(options: IGDBOptions): Promise<CompanyEndpointResponse[]>```
 
-#### credits
-```IGDB.endpoint.credits(options: IGDBOptions): Promise<CreditEndpointResponse[]>```
+``IGDB.endpoint.company(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``CompanyEndpointResponse``](interface/endpoint-response/company-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Company Endpoint Documentation](https://igdb.github.io/api/endpoints/company).
 
-#### feed
-```IGDB.endpoint.feed(options: IGDBOptions): Promise<FeedEndpointResponse[]>```
+
+#### credit
+
+``IGDB.endpoint.credit(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``CreditEndpointResponse``](interface/endpoint-response/credit-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Credit Endpoint Documentation](https://igdb.github.io/api/endpoints/credit).
+
 
 #### external_review
-```IGDB.endpoint.external_review(options: IGDBOptions): Promise<ExternalReviewEndpointResponse[]>```
+
+``IGDB.endpoint.externalreview(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ExternalReviewEndpointResponse``](interface/endpoint-response/external-review-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB External Review Endpoint Documentation](https://igdb.github.io/api/endpoints/external-review).
+
 
 #### external_review_source
-```IGDB.endpoint.external_review_source(options: IGDBOptions): Promise<ExternalReviewSourceEndpointResponse[]>```
+
+``IGDB.endpoint.externalreviewsource(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ExternalReviewSourceEndpointResponse``](interface/endpoint-response/external-review-source-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB External Review Source Endpoint Documentation](https://igdb.github.io/api/endpoints/external-review-source).
+
+
+#### feed
+
+``IGDB.endpoint.feed(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``FeedEndpointResponse``](interface/endpoint-response/feed-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Feed Endpoint Documentation](https://igdb.github.io/api/endpoints/feed).
+
 
 #### franchise
-```IGDB.endpoint.franchise(options: IGDBOptions): Promise<FranchiseEndpointResponse[]>```
+
+``IGDB.endpoint.franchise(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``FranchiseEndpointResponse``](interface/endpoint-response/franchise-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Franchise Endpoint Documentation](https://igdb.github.io/api/endpoints/franchise).
+
 
 #### game
-```IGDB.endpoint.game(options: IGDBOptions): Promise<GameEndpointResponse[]>```
+
+``IGDB.endpoint.game(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameEndpointResponse``](interface/endpoint-response/game-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Game Endpoint Documentation](https://igdb.github.io/api/endpoints/game).
+
 
 #### game_engine
-```IGDB.endpoint.game_engine(options: IGDBOptions): Promise<GameEngineEndpointResponse[]>```
+
+``IGDB.endpoint.gameengine(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameEngineEndpointResponse``](interface/endpoint-response/game-engine-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Game Engine Endpoint Documentation](https://igdb.github.io/api/endpoints/game-engine).
+
 
 #### game_mode
-```IGDB.endpoint.game_mode(options: IGDBOptions): Promise<GameModeEndpointResponse[]>```
+
+``IGDB.endpoint.gamemode(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameModeEndpointResponse``](interface/endpoint-response/game-mode-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Game Mode Endpoint Documentation](https://igdb.github.io/api/endpoints/game-mode).
+
+
+#### gameversion
+
+``IGDB.endpoint.gameversion(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameVersionEndpointResponse``](interface/endpoint-response/versions-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Game Version Endpoint Documentation](https://igdb.github.io/api/endpoints/versions).
+
 
 #### genre
-```IGDB.endpoint.genre(options: IGDBOptions): Promise<GenreEndpointResponse[]>```
+
+``IGDB.endpoint.genre(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GenreEndpointResponse``](interface/endpoint-response/genre-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Genre Endpoint Documentation](https://igdb.github.io/api/endpoints/genre).
+
 
 #### keyword
-```IGDB.endpoint.keyword(options: IGDBOptions): Promise<KeywordEndpointResponse[]>```
+
+``IGDB.endpoint.keyword(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``KeywordEndpointResponse``](interface/endpoint-response/keyword-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Keyword Endpoint Documentation](https://igdb.github.io/api/endpoints/keyword).
+
 
 #### page
-```IGDB.endpoint.page(options: IGDBOptions): Promise<PageEndpointResponse[]>```
+
+``IGDB.endpoint.page(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PageEndpointResponse``](interface/endpoint-response/page-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Page Endpoint Documentation](https://igdb.github.io/api/endpoints/page).
+
 
 #### person
-```IGDB.endpoint.person(options: IGDBOptions): Promise<PersonEndpointResponse[]>```
+
+``IGDB.endpoint.person(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PersonEndpointResponse``](interface/endpoint-response/person-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Person Endpoint Documentation](https://igdb.github.io/api/endpoints/person).
+
 
 #### platform
-```IGDB.endpoint.platform(options: IGDBOptions): Promise<PlatformEndpointResponse[]>```
 
-#### player_perspective
-```IGDB.endpoint.player_perspective(options: IGDBOptions): Promise<PlayerPerspecitveEndpointResponse[]>```
+``IGDB.endpoint.platform(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PlatformEndpointResponse``](interface/endpoint-response/platform-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Platform Endpoint Documentation](https://igdb.github.io/api/endpoints/platform).
+
+
+#### player_perspecitve
+
+``IGDB.endpoint.playerperspecitve(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PlayerPerspecitveEndpointResponse``](interface/endpoint-response/player-perspective-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Player Perspecitve Endpoint Documentation](https://igdb.github.io/api/endpoints/player-perspective).
+
 
 #### pulse
-```IGDB.endpoint.pulse(options: IGDBOptions): Promise<PulseEndpointResponse[]>```
+
+``IGDB.endpoint.pulse(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseEndpointResponse``](interface/endpoint-response/pulse-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Pulse Endpoint Documentation](https://igdb.github.io/api/endpoints/pulse).
+
 
 #### pulse_group
-```IGDB.endpoint.pulse_group(options: IGDBOptions): Promise<PulseGroupEndpointResponse[]>```
+
+``IGDB.endpoint.pulsegroup(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseGroupEndpointResponse``](interface/endpoint-response/pulse-group-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Pulse Group Endpoint Documentation](https://igdb.github.io/api/endpoints/pulse-group).
+
 
 #### pulse_source
-```IGDB.endpoint.pulse_source(options: IGDBOptions): Promise<PulseSourceEndpointResponse[]>```
+
+``IGDB.endpoint.pulsesource(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseSourceEndpointResponse``](interface/endpoint-response/pulse-source-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Pulse Source Endpoint Documentation](https://igdb.github.io/api/endpoints/pulse-source).
+
 
 #### release_date
-```IGDB.endpoint.release_date(options: IGDBOptions): Promise<ReleaseDateEndpointResponse[]>```
+
+``IGDB.endpoint.releasedate(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ReleaseDateEndpointResponse``](interface/endpoint-response/release-date-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Release Date Endpoint Documentation](https://igdb.github.io/api/endpoints/release-date).
+
 
 #### review
-```IGDB.endpoint.review(options: IGDBOptions): Promise<ReviewEndpointResponse[]>```
+
+``IGDB.endpoint.review(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ReviewEndpointResponse``](interface/endpoint-response/review-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Review Endpoint Documentation](https://igdb.github.io/api/endpoints/review).
+
 
 #### theme
-```IGDB.endpoint.theme(options: IGDBOptions): Promise<ThemeEndpointResponse[]>```
+
+``IGDB.endpoint.theme(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ThemeEndpointResponse``](interface/endpoint-response/theme-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Theme Endpoint Documentation](https://igdb.github.io/api/endpoints/theme).
+
 
 #### title
-```IGDB.endpoint.title(options: IGDBOptions): Promise<TitleEndpointResponse[]>```
+
+``IGDB.endpoint.title(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``TitleEndpointResponse``](interface/endpoint-response/title-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB Title Endpoint Documentation](https://igdb.github.io/api/endpoints/title).
+
 
 #### user_profile
-```IGDB.endpoint.user_profile(options: IGDBOptions): Promise<UserProfileEndpointResponse[]>```
 
-#### versions
-```IGDB.endpoint.versions(options: IGDBOptions): Promise<GameVersionEndpointResponse[]>```
+``IGDB.endpoint.userprofile(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``UserProfileEndpointResponse``](interface/endpoint-response/me-endpoint-response.interface.ts)``[]>``
+<br/><br/>
+For more information check the [IGDB User Profile Endpoint Documentation](https://igdb.github.io/api/endpoints/me).
+
 
 ### IGDB url
 This is an URL helper method. Full or partial URL's can be retrieved.
@@ -386,9 +494,9 @@ import { IGDBOptions } from 'ts-igdb/interface/igdb';
 
 These are declaring the types of the options object. It is enough to import only the IGDBOptions interface. OrderOption and FilterOption interfaces are part of IGDBOptions.
 
- - [IGDBOptions](https://github.com/enisz/ts-igdb/blob/master/interface/igdb/igdb-options.interface.ts)
- - [FilterOption](https://github.com/enisz/ts-igdb/blob/master/interface/igdb/filter-option.interface.ts)
- - [OrderOption](https://github.com/enisz/ts-igdb/blob/master/interface/igdb/order-option.interface.ts)
+ - [IGDBOptions](interface/igdb/igdb-options.interface.ts)
+ - [FilterOption](interface/igdb/filter-option.interface.ts)
+ - [OrderOption](interface/igdb/order-option.interface.ts)
 
 ### Endpoint Responses
 ```
@@ -397,33 +505,33 @@ import { <INTERFACE> } from 'ts-igdb/interface/endpoint-response';
 
 Every endpoint will return an array with elements from the related type. These interfaces can be imported from interface/endpoint-response.
 
- - [AchievementEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/achievement-endpoint-response.interface.ts)
- - [CharacterEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/character-endpoint-response.interface.ts)
- - [CollectionEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/collection-endpoint-response.interface.ts)
- - [CompanyEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/company-endpoint-response.interface.ts)
- - [CreditEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/credit-endpoint-response.interface.ts)
- - [ExternalReviewEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/external-review-endpoint-response.interface.ts)
- - [ExternalReviewSourceEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/external-review-source-endpoint-response.interface.ts)
- - [FeedEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/feed-endpoint-response.interface.ts)
- - [FranchiseEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/franchise-endpoint-response.interface.ts)
- - [GameEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/game-endpoint-response.interface.ts)
- - [GameEngineEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/game-engine-endpoint-response.interface.ts)
- - [GameModeEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/game-mode-endpoint-response.interface.ts)
- - [GenreEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/genre-endpoint-response.interface.ts)
- - [KeywordEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/keyword-endpoint-response.interface.ts)
- - [UserProfileEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/me-endpoint-response.interface.ts)
- - [PageEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/page-endpoint-response.interface.ts)
- - [PersonEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/person-endpoint-response.interface.ts)
- - [PlatformEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/platform-endpoint-response.interface.ts)
- - [PlayerPerspecitveEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/player-perspective-endpoint-response.interface.ts)
- - [PulseEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/pulse-endpoint-response.interface.ts)
- - [PulseGroupEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/pulse-group-endpoint-response.interface.ts)
- - [PulseSourceEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/pulse-source-endpoint-response.interface.ts)
- - [ReleaseDateEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/release-date-endpoint-response.interface.ts)
- - [ReviewEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/review-endpoint-response.interface.ts)
- - [ThemeEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/theme-endpoint-response.interface.ts)
- - [TitleEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/title-endpoint-response.interface.ts)
- - [GameVersionEndpointResponse](https://github.com/enisz/ts-igdb/blob/master/interface/endpoint-response/versions-endpoint-response.interface.ts)
+ - [AchievementsEndpointResponse](interface/endpoint-response/achievements-endpoint-response.interface.ts)
+ - [CharacterEndpointResponse](interface/endpoint-response/character-endpoint-response.interface.ts)
+ - [CollectionEndpointResponse](interface/endpoint-response/collection-endpoint-response.interface.ts)
+ - [CompanyEndpointResponse](interface/endpoint-response/company-endpoint-response.interface.ts)
+ - [CreditEndpointResponse](interface/endpoint-response/credit-endpoint-response.interface.ts)
+ - [ExternalReviewEndpointResponse](interface/endpoint-response/external-review-endpoint-response.interface.ts)
+ - [ExternalReviewSourceEndpointResponse](interface/endpoint-response/external-review-source-endpoint-response.interface.ts)
+ - [FeedEndpointResponse](interface/endpoint-response/feed-endpoint-response.interface.ts)
+ - [FranchiseEndpointResponse](interface/endpoint-response/franchise-endpoint-response.interface.ts)
+ - [GameEndpointResponse](interface/endpoint-response/game-endpoint-response.interface.ts)
+ - [GameEngineEndpointResponse](interface/endpoint-response/game-engine-endpoint-response.interface.ts)
+ - [GameModeEndpointResponse](interface/endpoint-response/game-mode-endpoint-response.interface.ts)
+ - [GenreEndpointResponse](interface/endpoint-response/genre-endpoint-response.interface.ts)
+ - [KeywordEndpointResponse](interface/endpoint-response/keyword-endpoint-response.interface.ts)
+ - [UserProfileEndpointResponse](interface/endpoint-response/me-endpoint-response.interface.ts)
+ - [PageEndpointResponse](interface/endpoint-response/page-endpoint-response.interface.ts)
+ - [PersonEndpointResponse](interface/endpoint-response/person-endpoint-response.interface.ts)
+ - [PlatformEndpointResponse](interface/endpoint-response/platform-endpoint-response.interface.ts)
+ - [PlayerPerspecitveEndpointResponse](interface/endpoint-response/player-perspective-endpoint-response.interface.ts)
+ - [PulseEndpointResponse](interface/endpoint-response/pulse-endpoint-response.interface.ts)
+ - [PulseGroupEndpointResponse](interface/endpoint-response/pulse-group-endpoint-response.interface.ts)
+ - [PulseSourceEndpointResponse](interface/endpoint-response/pulse-source-endpoint-response.interface.ts)
+ - [ReleaseDateEndpointResponse](interface/endpoint-response/release-date-endpoint-response.interface.ts)
+ - [ReviewEndpointResponse](interface/endpoint-response/review-endpoint-response.interface.ts)
+ - [ThemeEndpointResponse](interface/endpoint-response/theme-endpoint-response.interface.ts)
+ - [TitleEndpointResponse](interface/endpoint-response/title-endpoint-response.interface.ts)
+ - [GameVersionEndpointResponse](interface/endpoint-response/versions-endpoint-response.interface.ts)
 
 
  ### Miscellaneous Objects
@@ -434,13 +542,15 @@ import { <INTERFACE> } from 'ts-igdb/interface/miscellaneous';
 
 Miscellaneous objects are entities which don’t have individual IDs and are only present in fields either as an object or as an array of objects.
 
- - [AlternativeName](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/alternative-name.interface.ts)
- - [ESRB](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/esrb.interface.ts)
- - [External](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/external.interface.ts)
- - [Image](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/image.interface.ts)
- - [PEGI](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/pegi.interface.ts)
- - [PlatformCompany](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/platform-company.interface.ts)
- - [PlatformVersionReleaseDate](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/platform-version-release-date.interface.ts)
- - [PlatformVersion](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/platform-version.interface.ts)
- - [Video](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/video.interface.ts)
- - [Website](https://github.com/enisz/ts-igdb/blob/master/interface/miscellaneous/website.interface.ts)
+ - [AlternativeName](interface/miscellaneous/alternative-name.interface.ts)
+ - [ESRB](interface/miscellaneous/esrb.interface.ts)
+ - [External](interface/miscellaneous/external.interface.ts)
+ - [Image](interface/miscellaneous/image.interface.ts)
+ - [PEGI](interface/miscellaneous/pegi.interface.ts)
+ - [PlatformCompany](interface/miscellaneous/platform-company.interface.ts)
+ - [PlatformVersionReleaseDate](interface/miscellaneous/platform-version-release-date.interface.ts)
+ - [PlatformVersion](interface/miscellaneous/platform-version.interface.ts)
+ - [Video](interface/miscellaneous/video.interface.ts)
+ - [Website](interface/miscellaneous/website.interface.ts)
+
+For more information check the [IGDB Miscellaneous Objects Documentation](https://igdb.github.io/api/misc-objects)

@@ -1,6 +1,6 @@
 import { Image } from '../miscellaneous';
 
-export interface AchievementEndpointResponse {
+export interface AchievementsEndpointResponse {
 
 	id: number;
 

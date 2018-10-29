@@ -3,7 +3,7 @@ import Got from 'got';
 
 import { IGDBOptions } from '../interface/igdb';
 import {
-    AchievementEndpointResponse,
+    AchievementsEndpointResponse,
     CharacterEndpointResponse,
     CollectionEndpointResponse,
     CompanyEndpointResponse,
@@ -99,7 +99,7 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/achievements
      */
-    public achievements(options: IGDBOptions): Promise<AchievementEndpointResponse[]> { return this.asPromise('achievements', options); }
+    public achievements(options: IGDBOptions): Promise<AchievementsEndpointResponse[]> { return this.asPromise('achievements', options); }
 
     /**
      * Fetch data using CHARACTER endpoint

@@ -1,4 +1,4 @@
-export * from './achievement-endpoint-response.interface';
+export * from './achievements-endpoint-response.interface';
 export * from './character-endpoint-response.interface';
 export * from './collection-endpoint-response.interface';
 export * from './company-endpoint-response.interface';
