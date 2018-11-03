@@ -1,6 +1,6 @@
 {
   "name": "ts-igdb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node.js module for IGDB written in TypeScript",
   "main": "index.js",
   "scripts": {
