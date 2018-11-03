@@ -15,5 +15,5 @@ export interface FilterOption {
     /**
      * The value of the filter.
      */
-    value: number
+    value: string | string[] | number | number[]
 }

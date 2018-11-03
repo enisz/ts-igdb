@@ -45,7 +45,15 @@ export class IGDBUrl {
                 
                 case 'filters':
                     (<FilterOption[]>options[param]).forEach( filter => {
-                        params.push(`filter[${filter.field}][${filter.postfix}]=${filter.value}`);
+                        let filterValue: string;
+
+                        if(typeof filter.value == 'string' || typeof filter.value == 'number')
+                            filterValue = filter.value.toString();
+                            
+                        else
+                            filterValue = filter.value.join(',');
+                        
+                        params.push(`filter[${filter.field}][${filter.postfix}]=${filterValue}`);
                     });
                 break;
                 

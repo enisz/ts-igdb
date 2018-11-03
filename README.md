@@ -146,7 +146,7 @@ Every endpoint method will expect an ``options`` object which will set the reque
      - ``in``: The value exists within the (comma separated) array (AND between values).
      - ``not_in``: The values must not exists within the (comma separated) array (AND between values).
      - ``any``: The value has any within the (comma separated) array (OR between values).
-   - ``value``: The value of the filter as a number
+   - ``value``: The value of the filter. This can be a string, a number or an array.
  - ``order [optional]``: Ordering (sorting) is used to order results by a specific field. When not provided, the results will be ordered ASCENDING by ID. This have to be an object with the following parameters:
       - ``field``: The field you want to do the ordering by as a string
       - ``direction``: The direction of the ordering. This can have one of the following values:
