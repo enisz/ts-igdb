@@ -44,4 +44,9 @@ export interface IGDBOptions {
      * Ordering (sorting) is used to order results by a specific field. When not provided, the results will be ordered ASCENDING by ID.
      */
     order? : OrderOption,
+
+    /**
+     * Whether you want to get the elements of the result, or the count of the elements.
+     */
+    count? : boolean
 }

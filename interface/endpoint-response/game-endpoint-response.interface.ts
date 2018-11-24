@@ -3,6 +3,11 @@ import { AlternativeName, Image, Video, ESRB, PEGI, Website } from "../miscellan
 
 export interface GameEndpointResponse {
 
+	/**
+	 * If count parameter is set in the options array, the value from IGDB will be stored here.
+	 */
+	count?: number
+
 	id: string;
 
 	name: string;

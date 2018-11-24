@@ -15,20 +15,29 @@ export class IGDBUrl {
      */
     public queryString(options: IGDBOptions): string
     {
-        let params: string[] = [];
-        let url: string = '';
-        let ids: number[] = [];
 
+        // An array for the params to concatenate with & signs
+        let params: string[] = [];
+
+        // A string to append the url segments to. This will be returned.
+        let url: string = '';
+
+        // If id and search parameters are present at the same time => remove the search parameter
         if(options.id && options.search)
             delete options.search;
 
+        // If there is a count and id parameters simultaneously, remove the id parameter
+        if(options.count && options.count == true && options.id)
+            delete options.id;
+
         for(let param in options)
+        {
+            // If count parameter is set and the actual parameter is not a filter, then skip this round
+            if(options.count && options.count === true && param != 'filters')
+                continue;
+
             switch(param)
-            {
-                case 'id':
-                    ids = (<number[]>options[param]);
-                break;
-                
+            {   
                 case 'search':
                     params.push(`${param}=${encodeURI(<string>options[param])}`);
                 break;
@@ -65,12 +74,19 @@ export class IGDBUrl {
                     params.push(`${param}=${field}:${direction}${subfilter != undefined ? `:${subfilter}` : ``}`);
                 break;
             }
+        }
 
-        if(ids.length != 0)
-            url += ids.join(',');
+        // If there are ID's in the options array, join them with commas
+        if(options.id && options.id.length > 0)
+            url += options.id.join(',');
+
+        // If count parameter is set, append it to the url.
+        if(options.count && options.count === true)
+            url += 'count';
         
         url += '?';
 
+        // Join all parameters with & sign
         url += params.join('&');
 
         return url;

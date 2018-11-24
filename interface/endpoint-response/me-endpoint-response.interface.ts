@@ -1,5 +1,10 @@
 export interface UserProfileEndpointResponse {
 
+	/**
+	 * If count parameter is set in the options array, the value from IGDB will be stored here.
+	 */
+	count?: number
+	
 	id: number;
 
 	username: string;

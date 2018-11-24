@@ -1,7 +1,7 @@
 import { IGDBUrl } from './igdb-url';
 import Got from 'got';
 
-import { IGDBOptions } from '../interface/igdb';
+import { IGDBOptions, FilterOption } from '../interface/igdb';
 import {
     AchievementsEndpointResponse,
     CharacterEndpointResponse,
@@ -65,7 +65,7 @@ export class IGDBEndpoint {
             'Accept': 'application/json'
         };
 
-        return Got.get(this.IGDBUrl.queryUrl(endpoint, options), {headers : headers})
+        return Got.get(this.IGDBUrl.queryUrl(endpoint, options), {headers : headers});
     }
 
     /**
@@ -91,7 +91,7 @@ export class IGDBEndpoint {
                     }
                 )
             }
-        )
+        );
     }
 
     /**
@@ -281,5 +281,5 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/version
      */
-    public versions(options: IGDBOptions): Promise<GameVersionEndpointResponse[]> { return this.asPromise('game_versions', options); }
+    public game_version(options: IGDBOptions): Promise<GameVersionEndpointResponse[]> { return this.asPromise('game_versions', options); }
 }

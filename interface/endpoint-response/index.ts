@@ -23,5 +23,5 @@ export * from './release-date-endpoint-response.interface';
 export * from './review-endpoint-response.interface';
 export * from './theme-endpoint-response.interface';
 export * from './title-endpoint-response.interface';
-export * from './versions-endpoint-response.interface';
+export * from './game-versions-endpoint-response.interface';
 export * from './me-endpoint-response.interface';

@@ -12,20 +12,21 @@
     + [character](#character)
     + [collection](#collection)
     + [company](#company)
-    + [credits](#credits)
-    + [feed](#feed)
+    + [credit](#credit)
     + [external_review](#external_review)
     + [external_review_source](#external_review_source)
+    + [feed](#feed)
     + [franchise](#franchise)
     + [game](#game)
     + [game_engine](#game_engine)
     + [game_mode](#game_mode)
+    + [game_version](#game_version)
     + [genre](#genre)
     + [keyword](#keyword)
     + [page](#page)
     + [person](#person)
     + [platform](#platform)
-    + [player_perspective](#player_perspective)
+    + [player_perspecitve](#player_perspecitve)
     + [pulse](#pulse)
     + [pulse_group](#pulse_group)
     + [pulse_source](#pulse_source)
@@ -34,7 +35,6 @@
     + [theme](#theme)
     + [title](#title)
     + [user_profile](#user_profile)
-    + [versions](#versions)
   * [IGDB url](#igdb-url)
     + [Query String](#query-string)
     + [Api URL](#api-url)
@@ -44,6 +44,17 @@
   * [IGDB interfaces](#igdb-interfaces)
   * [Endpoint Responses](#endpoint-responses)
   * [Miscellaneous Objects](#miscellaneous-objects)
+- [Examples](#examples)
+  * [Get all information from a specific game](#get-all-information-from-a-specific-game)
+  * [Get all games from specific genres](#get-all-games-from-specific-genres)
+  * [Count total games that have a rating higher than 75](#count-total-games-that-have-a-rating-higher-than-75)
+  * [Count total games from a certain platform](#count-total-games-from-a-certain-platform)
+  * [Order by popularity](#order-by-popularity)
+  * [Coming soon games for Playstation 4](#coming-soon-games-for-playstation-4)
+  * [Search, return certain fields.](#search-return-certain-fields)
+  * [Search games but exclude versions (editions)](#search-games-but-exclude-versions-editions)
+  * [Get versions (editions) of a game](#get-versions-editions-of-a-game)
+  * [Get the parent game for a version](#get-the-parent-game-for-a-version)
 
 <!-- tocstop -->
 
@@ -59,7 +70,11 @@ npm install ts-igdb --save
 The package includes the type declaration files for TypeScript; you don't need to install them separately.
 
 ## Basic usage
+First, you have to set up an [options object](#options) which will be used to construct the query url against IGDB.
 
+When the object is ready, you can call the module's specific [endpoint method](#igdb-endpoint), passing this object as a parameter to it. These methods will always return a promise.
+
+Javascript example:
 ```
 // index.js
 const IGDB = require('ts-igdb').default;
@@ -78,10 +93,11 @@ igdb.endpoint.game({
 })
 .then(
     games => {
-        // games will contain all results as an array
+        // 'games' will contain all results as an array
         console.log(games);
     }
-).catch(
+)
+.catch(
     error => {
         // in case of an error, the error object will be returned
         console.log(error.message);
@@ -89,9 +105,9 @@ igdb.endpoint.game({
 )
 ```
 
+Typescript example:
 ```
 // index.ts
-import Got from 'got'
 import IGDB from 'ts-igdb';
 import { IGDBOptions } from 'ts-igdb/interface/igdb';
 import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
@@ -111,13 +127,13 @@ const options: IGDBOptions = {
 igdb.endpoint.game(options)
 .then(
     (games: GameEndpointResponse[]) => {
-        // games will contain all results as an array
+        // 'games' will contain all results as an array
         console.log(games);
     }
 )
 .catch(
-    (error: Got.GotError) => {
-        // in case of an error, the Got module's error object will be returned
+    (error: any) => {
+        // in case of an error, the error object will be returned
         console.log(error.message);
     }
 )
@@ -127,9 +143,9 @@ igdb.endpoint.game(options)
 Every endpoint method will expect an ``options`` object which will set the request's parameters. The object can contain the following keys:
  - ``id [optional]``: One ore more ID's as an array. When ID is provided, the search parameter will be ignored. 
  - ``search [optional]``: The query will search the name field looking for this value as a string. If id is provided in the same options object, than this value will be ignored.
- - ``fields [optional]``: The fields you want to see in the result array. If every field is required an array with a single star element can be set ( `` search: ['*'] `` )
- - ``limit [optional]``: The maximum number of results in a single query. This value must be a number between 1 and 50.
- - ``offset``: This will start the result list at the provided value and will give limit number of results. This value must be a number (0 or greater).
+ - ``fields [optional]``: The fields you want to see in the result array. If every field is required an array with a single star element can be set ( `` search: ['*'] `` ). If not provided only the id field will be returned.
+ - ``limit [optional]``: The maximum number of results in a single query. This value must be a number between 1 and 50. If not provided, IGDB's default value will be used (at the time of writing the default limit is 10)
+ - ``offset [optional]``: This will start the result list at the provided value and will give limit number of results. This value must be a number (0 or greater). By default the results will be returned from the first element (0).
  - ``expand [optional]``: The expander feature is used to combine multiple requests. Have to be provided as an array of strings.
  - ``filters [optional]``: Filters are used to swift through results to get what you want. You can exclude and include results based on their properties. The parameter have to be provided as an array. The elements have to contain an object with the following parameters (these are not optional, all three parameters are required):
    - ``field``: The name of the field you want to apply the filter to
@@ -152,13 +168,13 @@ Every endpoint method will expect an ``options`` object which will set the reque
       - ``direction``: The direction of the ordering. This can have one of the following values:
         - ``asc``: ascending ordering
         - ``desc``: descending ordering
-      - ``subfilter [optional]``: The field you want to do the ordering by as a string. This parameter can have the following values:
+      - ``subfilter [optional]``: You can apply this optional subfilter for even more complex ordering. Available subfilters are:
         - ``min``
         - ``max``
         - ``avg``
         - ``sum``
         - ``median``
-
+ - ``count [optional]``: This is a boolean value whether you want to get the results, or the sum of all the records that match the provided filters. In case of boolean TRUE only a single object will be returned with a ``count`` property, containing the number of the matched results. If count is provided in the options object, only the ``filters`` parameter will be processed (if presents). If no filter is passed, everything on that endpoint will be counted.
 
 ## Methods
 ### IGDB endpoint
@@ -250,9 +266,9 @@ For more information check the [IGDB Game Engine Endpoint Documentation](https:/
 For more information check the [IGDB Game Mode Endpoint Documentation](https://igdb.github.io/api/endpoints/game-mode).
 
 
-#### gameversion
+#### game_version
 
-``IGDB.endpoint.gameversion(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameVersionEndpointResponse``](interface/endpoint-response/versions-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.game_version(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameVersionEndpointResponse``](interface/endpoint-response/versions-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Game Version Endpoint Documentation](https://igdb.github.io/api/endpoints/versions).
 
@@ -350,7 +366,7 @@ For more information check the [IGDB Title Endpoint Documentation](https://igdb.
 
 #### user_profile
 
-``IGDB.endpoint.userprofile(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``UserProfileEndpointResponse``](interface/endpoint-response/me-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.user_profile(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``UserProfileEndpointResponse``](interface/endpoint-response/me-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB User Profile Endpoint Documentation](https://igdb.github.io/api/endpoints/me).
 
@@ -554,3 +570,381 @@ Miscellaneous objects are entities which don’t have individual IDs and are onl
  - [Website](interface/miscellaneous/website.interface.ts)
 
 For more information check the [IGDB Miscellaneous Objects Documentation](https://igdb.github.io/api/misc-objects)
+
+## Examples
+These examples are available in the examples folder of this project on GitHub. The examples are taken from [IGDB's example page](https://igdb.github.io/api/examples).
+
+### Get all information from a specific game
+```
+/*
+
+    Get all information from a specific game
+    /games/1942?fields=*
+
+    1942, is the ID of the game.
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOU API KEY>');
+
+const options: IGDBOptions = {
+    id: [1942],
+    fields: ['*']
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Get all games from specific genres
+```
+/*
+
+    Get all games from specific genres
+    /genres/12,9,11?fields=*
+
+    Notice you can comma separate multiple IDs (12, 9 and 11). You can do this with games, companies and anything else.
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GenreEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    id: [12, 9, 11],
+    fields: ['*']
+};
+
+igdb.endpoint.genre(options)
+.then(
+    (response: GenreEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Count total games that have a rating higher than 75
+```
+/*
+
+    Count total games that have a rating higher than 75
+    /games/count?filter[rating][gt]=75
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    count: true,
+    filters: [
+        {
+            field: 'rating',
+            postfix: 'gt',
+            value: 75
+        }
+    ]
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Count total games from a certain platform 
+```
+/*
+
+    Count total games from a certain platform (Playstation 4 , id=48)
+    /games/count?filter[release_dates.platform][eq]=48
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    count: true,
+    filters: [
+        {
+            field: 'release_dates.platform',
+            postfix: 'eq',
+            value: 48
+        }
+    ]
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+
+
+### Order by popularity
+```
+/*
+
+    Order by popularity
+    Popularity parameter for games. You can access it like this: /games/?fields=name,popularity&order=popularity:desc
+
+    The popularity number is calculated using usage statistics of game pages at https://www.igdb.com
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    fields: ['name', 'popularity'],
+    order: {
+        field: 'popularity',
+        direction: 'desc'
+    }
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Coming soon games for Playstation 4
+```
+/*
+
+    Coming soon games for Playstation 4
+    /release_dates/?fields=*&filter[platform][eq]=48&order=date:asc&filter[date][gt]=1500619813000&expand=game
+
+    1500619813000: Is the timestamp in milliseconds of today (This you need to generate yourself) 48 Is the platform id of Playstation 4.
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { ReleaseDateEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    fields: ['*'],
+    filters: [
+        {
+            field: 'platform',
+            postfix: 'eq',
+            value: 48
+        },
+        {
+            field: 'date',
+            postfix: 'gt',
+            value: new Date().getTime()
+        }
+    ],
+    order: {
+        field: 'date',
+        direction: 'asc'
+    },
+    expand: ['game']
+};
+
+igdb.endpoint.release_date(options)
+.then(
+    (response: ReleaseDateEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Search, return certain fields.
+```
+/*
+
+    Search, return certain fields.
+    /games/?search=Halo
+
+    This will return search results and the IDs of the games. If you want to return certain fields of the game or even all, do the following:
+
+    /games/?search=Halo&fields=name,publishers /games/?search=Halo&fields=*
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    search: 'halo',
+    fields: ['*']
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Search games but exclude versions (editions)
+```
+/*
+
+    Search games but exclude versions (editions)
+    /games/?search=Assassins%20Creed&fields=name&filter[version_parent][not_exists]=1
+
+    This will return search results with ID and name of the game but exclude editions such as “Collectors Edition”.
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    search: 'Assassins Creed',
+    fields: ['name'],
+    filters: [
+        {
+            field: 'version_parent',
+            postfix: 'not_exists',
+            value: 1
+        }
+    ]
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Get versions (editions) of a game 
+```
+/*
+
+    Get versions (editions) of a game
+    /game_versions/?fields=games,games.name&filter[game][eq]=28540&expand=games
+
+    This resulting object will contain a list of version ids and names.
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameVersionEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    fields: ['games', 'games.name'],
+    filters: [
+        {
+            field: 'game',
+            postfix: 'eq',
+            value: 28540
+        }
+    ],
+    expand: ['games']
+};
+
+igdb.endpoint.game_version(options)
+.then(
+    (response: GameVersionEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```
+
+### Get the parent game for a version
+```
+/*
+
+    Get the parent game for a version
+    /games/39047?fields=version_parent
+
+    This resulting object will contain the id of the parent game (version_parent).
+
+*/
+
+import IGDB from 'ts-igdb';
+import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { GameEndpointResponse } from 'ts-igdb/interface/endpoint-response';
+
+const igdb = new IGDB('<YOUR API KEY>');
+
+const options: IGDBOptions = {
+    id: [39047],
+    fields: ['version_parent']
+};
+
+igdb.endpoint.game(options)
+.then(
+    (response: GameEndpointResponse[]) => {
+        console.log(response);
+    }
+)
+.catch(
+    (error: any) => console.log(error.message)
+)
+```

@@ -2,6 +2,11 @@ import { Image, PlatformVersion } from "../miscellaneous";
 
 export interface PlatformEndpointResponse {
 
+	/**
+	 * If count parameter is set in the options array, the value from IGDB will be stored here.
+	 */
+	count?: number
+	
 	id: number;
 
 	name: string;
