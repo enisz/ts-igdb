@@ -25,7 +25,7 @@ const options: IGDBOptions = {
 igdb.endpoint.game(options)
 .then(
     (response: GameEndpointResponse[]) => {
-        // The response will be an array with only one elemnet with only a count property
+        // When using count, the response will be an array with one element with only one property: count
         console.log(response[0].count);
     }
 )
