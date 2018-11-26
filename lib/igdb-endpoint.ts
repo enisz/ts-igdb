@@ -81,7 +81,7 @@ export class IGDBEndpoint {
                 .then(
                     (response: Got.Response<any>) => {
                         // If the request was successful resolve the body of the response as a JSON
-                        resolve(JSON.parse(response.body))
+                        resolve(options.count && options.count == true ? [JSON.parse(response.body)] : JSON.parse(response.body))
                     }
                 )
                 .catch(

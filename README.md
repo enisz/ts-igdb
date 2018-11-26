@@ -669,7 +669,8 @@ const options: IGDBOptions = {
 igdb.endpoint.game(options)
 .then(
     (response: GameEndpointResponse[]) => {
-        console.log(response);
+        // The response will be an array with only one elemnet with only a count property
+        console.log(response[0].count);
     }
 )
 .catch(
@@ -706,7 +707,8 @@ const options: IGDBOptions = {
 igdb.endpoint.game(options)
 .then(
     (response: GameEndpointResponse[]) => {
-        console.log(response);
+        // The response will be an array with only one elemnet with only a count property
+        console.log(response[0].count);
     }
 )
 .catch(
