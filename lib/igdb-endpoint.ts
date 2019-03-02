@@ -1,7 +1,7 @@
 import { IGDBUrl } from './igdb-url';
 import Got from 'got';
 
-import { IGDBOptions, FilterOption } from '../interface/igdb';
+import { IGDBOptions } from '../interface/igdb';
 import {
     AchievementsEndpointResponse,
     CharacterEndpointResponse,
@@ -141,14 +141,14 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/external-review
      */
-    public external_review(options: IGDBOptions): Promise<ExternalReviewEndpointResponse[]> { return this.asPromise('external_reviews', options); }
+    public externalReview(options: IGDBOptions): Promise<ExternalReviewEndpointResponse[]> { return this.asPromise('external_reviews', options); }
 
     /**
      * Fetch data using EXTERNAL REVIEW SOURCE endpoint
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/external-review-source
      */
-    public external_review_source(options: IGDBOptions): Promise<ExternalReviewSourceEndpointResponse[]> { return this.asPromise('external_review_sources', options); }
+    public externalReviewSource(options: IGDBOptions): Promise<ExternalReviewSourceEndpointResponse[]> { return this.asPromise('external_review_sources', options); }
 
     /**
      * Fetch data using FRANCHISE endpoint
@@ -169,14 +169,14 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/game-engine
      */
-    public game_engine(options: IGDBOptions): Promise<GameEngineEndpointResponse[]> { return this.asPromise('game_engines', options); }
+    public gameEngine(options: IGDBOptions): Promise<GameEngineEndpointResponse[]> { return this.asPromise('game_engines', options); }
 
     /**
      * Fetch data using GAME MODE endpoint
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/game-mode
      */
-    public game_mode(options: IGDBOptions): Promise<GameModeEndpointResponse[]> { return this.asPromise('game_modes', options); }
+    public gameMode(options: IGDBOptions): Promise<GameModeEndpointResponse[]> { return this.asPromise('game_modes', options); }
 
     /**
      * Fetch data using GENRE endpoint
@@ -218,7 +218,7 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/player-perspective
      */
-    public player_perspective(options: IGDBOptions): Promise<PlayerPerspecitveEndpointResponse[]> { return this.asPromise('player_perspectives', options); }
+    public playerPerspective(options: IGDBOptions): Promise<PlayerPerspecitveEndpointResponse[]> { return this.asPromise('player_perspectives', options); }
 
     /**
      * Fetch data using PULSE endpoint
@@ -232,21 +232,21 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/pulse-groups
      */
-    public pulse_group(options: IGDBOptions): Promise<PulseGroupEndpointResponse[]> { return this.asPromise('pulse_groups', options); }
+    public pulseGroup(options: IGDBOptions): Promise<PulseGroupEndpointResponse[]> { return this.asPromise('pulse_groups', options); }
 
     /**
      * Fetch data using PULSE SOURCE endpoint
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/pulse-source
      */
-    public pulse_source(options: IGDBOptions): Promise<PulseSourceEndpointResponse[]> { return this.asPromise('pulse_sources', options); }
+    public pulseSource(options: IGDBOptions): Promise<PulseSourceEndpointResponse[]> { return this.asPromise('pulse_sources', options); }
 
     /**
      * Fetch data using RELEASE DATE endpoint
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/release-date 
      */
-    public release_date(options: IGDBOptions): Promise<ReleaseDateEndpointResponse[]> { return this.asPromise('release_dates', options); }
+    public releaseDate(options: IGDBOptions): Promise<ReleaseDateEndpointResponse[]> { return this.asPromise('release_dates', options); }
     
     /**
      * Fetch data using REVIEW endpoint
@@ -274,12 +274,12 @@ export class IGDBEndpoint {
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/me
      */
-    public user_profile(options: IGDBOptions): Promise<UserProfileEndpointResponse[]> { return this.asPromise('me', options); }
+    public userProfile(options: IGDBOptions): Promise<UserProfileEndpointResponse[]> { return this.asPromise('me', options); }
 
     /**
      * Fetch data using VERSIONS endpoint
      * @param options An option object to customize the query
      * @link https://igdb.github.io/api/endpoints/version
      */
-    public game_version(options: IGDBOptions): Promise<GameVersionEndpointResponse[]> { return this.asPromise('game_versions', options); }
+    public gameVersion(options: IGDBOptions): Promise<GameVersionEndpointResponse[]> { return this.asPromise('game_versions', options); }
 }

@@ -13,28 +13,28 @@
     + [collection](#collection)
     + [company](#company)
     + [credit](#credit)
-    + [external_review](#external_review)
-    + [external_review_source](#external_review_source)
+    + [externalReview](#externalreview)
+    + [externalReviewSource](#externalreviewsource)
     + [feed](#feed)
     + [franchise](#franchise)
     + [game](#game)
-    + [game_engine](#game_engine)
-    + [game_mode](#game_mode)
-    + [game_version](#game_version)
+    + [gameEngine](#gameengine)
+    + [gameMode](#gamemode)
+    + [gameVersion](#gameversion)
     + [genre](#genre)
     + [keyword](#keyword)
     + [page](#page)
     + [person](#person)
     + [platform](#platform)
-    + [player_perspecitve](#player_perspecitve)
+    + [playerPerspecitve](#playerperspecitve)
     + [pulse](#pulse)
-    + [pulse_group](#pulse_group)
-    + [pulse_source](#pulse_source)
-    + [release_date](#release_date)
+    + [pulseGroup](#pulsegroup)
+    + [pulseSource](#pulsesource)
+    + [releaseDate](#releasedate)
     + [review](#review)
     + [theme](#theme)
     + [title](#title)
-    + [user_profile](#user_profile)
+    + [userProfile](#userprofile)
   * [IGDB url](#igdb-url)
     + [Query String](#query-string)
     + [Api URL](#api-url)
@@ -55,6 +55,8 @@
   * [Search games but exclude versions (editions)](#search-games-but-exclude-versions-editions)
   * [Get versions (editions) of a game](#get-versions-editions-of-a-game)
   * [Get the parent game for a version](#get-the-parent-game-for-a-version)
+- [Changelog](#changelog)
+  * [2019.03.02 - v1.1.3](#20190302---v113)
 
 <!-- tocstop -->
 
@@ -147,7 +149,7 @@ Every endpoint method will expect an ``options`` object which will set the reque
  - ``limit [optional]``: The maximum number of results in a single query. This value must be a number between 1 and 50. If not provided, IGDB's default value will be used (at the time of writing the default limit is 10)
  - ``offset [optional]``: This will start the result list at the provided value and will give limit number of results. This value must be a number (0 or greater). By default the results will be returned from the first element (0).
  - ``expand [optional]``: The expander feature is used to combine multiple requests. Have to be provided as an array of strings.
- - ``filters [optional]``: Filters are used to swift through results to get what you want. You can exclude and include results based on their properties. The parameter have to be provided as an array. The elements have to contain an object with the following parameters (these are not optional, all three parameters are required):
+ - ``filters [optional]``: Filters are used to swift through results to get what you want. You can exclude and include results based on their properties. The parameter have to be provided as an array. The elements have to be objects with the following parameters (these are not optional, all three parameters are required):
    - ``field``: The name of the field you want to apply the filter to
    - ``postfix``: The postfix you want to use with the filter. The values can be
      - ``eq``: Equal: Exact match equal.
@@ -217,16 +219,16 @@ For more information check the [IGDB Company Endpoint Documentation](https://igd
 For more information check the [IGDB Credit Endpoint Documentation](https://igdb.github.io/api/endpoints/credit).
 
 
-#### external_review
+#### externalReview
 
-``IGDB.endpoint.externalreview(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ExternalReviewEndpointResponse``](interface/endpoint-response/external-review-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.externalReview(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ExternalReviewEndpointResponse``](interface/endpoint-response/external-review-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB External Review Endpoint Documentation](https://igdb.github.io/api/endpoints/external-review).
 
 
-#### external_review_source
+#### externalReviewSource
 
-``IGDB.endpoint.externalreviewsource(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ExternalReviewSourceEndpointResponse``](interface/endpoint-response/external-review-source-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.externalReviewSource(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ExternalReviewSourceEndpointResponse``](interface/endpoint-response/external-review-source-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB External Review Source Endpoint Documentation](https://igdb.github.io/api/endpoints/external-review-source).
 
@@ -252,23 +254,23 @@ For more information check the [IGDB Franchise Endpoint Documentation](https://i
 For more information check the [IGDB Game Endpoint Documentation](https://igdb.github.io/api/endpoints/game).
 
 
-#### game_engine
+#### gameEngine
 
-``IGDB.endpoint.gameengine(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameEngineEndpointResponse``](interface/endpoint-response/game-engine-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.gameEngine(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameEngineEndpointResponse``](interface/endpoint-response/game-engine-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Game Engine Endpoint Documentation](https://igdb.github.io/api/endpoints/game-engine).
 
 
-#### game_mode
+#### gameMode
 
-``IGDB.endpoint.gamemode(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameModeEndpointResponse``](interface/endpoint-response/game-mode-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.gameMode(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameModeEndpointResponse``](interface/endpoint-response/game-mode-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Game Mode Endpoint Documentation](https://igdb.github.io/api/endpoints/game-mode).
 
 
-#### game_version
+#### gameVersion
 
-``IGDB.endpoint.game_version(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameVersionEndpointResponse``](interface/endpoint-response/versions-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.gameVersion(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``GameVersionEndpointResponse``](interface/endpoint-response/versions-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Game Version Endpoint Documentation](https://igdb.github.io/api/endpoints/versions).
 
@@ -308,9 +310,9 @@ For more information check the [IGDB Person Endpoint Documentation](https://igdb
 For more information check the [IGDB Platform Endpoint Documentation](https://igdb.github.io/api/endpoints/platform).
 
 
-#### player_perspecitve
+#### playerPerspecitve
 
-``IGDB.endpoint.playerperspecitve(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PlayerPerspecitveEndpointResponse``](interface/endpoint-response/player-perspective-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.playerPerspecitve(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PlayerPerspecitveEndpointResponse``](interface/endpoint-response/player-perspective-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Player Perspecitve Endpoint Documentation](https://igdb.github.io/api/endpoints/player-perspective).
 
@@ -322,23 +324,23 @@ For more information check the [IGDB Player Perspecitve Endpoint Documentation](
 For more information check the [IGDB Pulse Endpoint Documentation](https://igdb.github.io/api/endpoints/pulse).
 
 
-#### pulse_group
+#### pulseGroup
 
-``IGDB.endpoint.pulsegroup(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseGroupEndpointResponse``](interface/endpoint-response/pulse-group-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.pulseGroup(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseGroupEndpointResponse``](interface/endpoint-response/pulse-group-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Pulse Group Endpoint Documentation](https://igdb.github.io/api/endpoints/pulse-group).
 
 
-#### pulse_source
+#### pulseSource
 
-``IGDB.endpoint.pulsesource(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseSourceEndpointResponse``](interface/endpoint-response/pulse-source-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.pulseSource(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``PulseSourceEndpointResponse``](interface/endpoint-response/pulse-source-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Pulse Source Endpoint Documentation](https://igdb.github.io/api/endpoints/pulse-source).
 
 
-#### release_date
+#### releaseDate
 
-``IGDB.endpoint.releasedate(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ReleaseDateEndpointResponse``](interface/endpoint-response/release-date-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.releaseDate(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``ReleaseDateEndpointResponse``](interface/endpoint-response/release-date-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB Release Date Endpoint Documentation](https://igdb.github.io/api/endpoints/release-date).
 
@@ -364,9 +366,9 @@ For more information check the [IGDB Theme Endpoint Documentation](https://igdb.
 For more information check the [IGDB Title Endpoint Documentation](https://igdb.github.io/api/endpoints/title).
 
 
-#### user_profile
+#### userProfile
 
-``IGDB.endpoint.user_profile(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``UserProfileEndpointResponse``](interface/endpoint-response/me-endpoint-response.interface.ts)``[]>``
+``IGDB.endpoint.userProfile(options: ``[``IGDBOptions``](interface/igdb/igdb-options.interface.ts)``): Promise<``[``UserProfileEndpointResponse``](interface/endpoint-response/me-endpoint-response.interface.ts)``[]>``
 <br/><br/>
 For more information check the [IGDB User Profile Endpoint Documentation](https://igdb.github.io/api/endpoints/me).
 
@@ -505,10 +507,10 @@ The following interfaces can be imported when the module is used in a TypeScript
 ### IGDB interfaces
 
 ```
-import { IGDBOptions } from 'ts-igdb/interface/igdb';
+import { <INTERFACES> } from 'ts-igdb/interface/igdb';
 ```
 
-These are declaring the types of the options object. It is enough to import only the IGDBOptions interface. OrderOption and FilterOption interfaces are part of IGDBOptions.
+IGDBOptions can be imported from here which is declaring the type of the options object. It is enough to import only the IGDBOptions interface, since FilterOption and OrderOption is part of the IGDB object. However you can import them if required.
 
  - [IGDBOptions](interface/igdb/igdb-options.interface.ts)
  - [FilterOption](interface/igdb/filter-option.interface.ts)
@@ -950,3 +952,18 @@ igdb.endpoint.game(options)
     (error: any) => console.log(error.message)
 )
 ```
+
+## Changelog
+### 2019.03.02 - v1.1.3
+ - Updated dependencies: nodemon had a potential security vulnerability
+ - Updated endpoint method names: converted method names to Camel Case
+   - external_review => [externalReview](#externalreview)
+   - external_review_source => [externalReviewSource](#externalreviewsource)
+   - game_engine => [gameEngine](#gameengine)
+   - game_mode => [gameMode](#gameMode)
+   - game_version => [gameVersion](#gameversion)
+   - player_perspective => [playerPerspecitve](#playerperspecitve)
+   - pulse_group => [pulseGroup](#pulsegroup)
+   - pulse_source => [pulseSource](#pulsesource)
+   - release_date => [releaseDate](#releasedate)
+   - user_profile => [userProfile](#userprofile)

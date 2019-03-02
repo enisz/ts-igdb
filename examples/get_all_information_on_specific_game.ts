@@ -11,7 +11,7 @@ import IGDB from '..';
 import { IGDBOptions } from '../interface/igdb';
 import { GameEndpointResponse } from '../interface/endpoint-response';
 
-const igdb = new IGDB('<YOU API KEY>');
+const igdb = new IGDB('<YOUR API KEY>');
 
 const options: IGDBOptions = {
     id: [1942],
