@@ -1,4 +1,4 @@
-**This class is DEPRECATED**
+**This module is DEPRECATED**
 
 This class was written to the V2 api of IGDB. This version of the api will be discontinued and unsupported from 30th of June, 2019. 
 
